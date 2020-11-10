@@ -594,6 +594,12 @@ class Router
     {
         $method = is_null($default) ? $_SERVER['REQUEST_METHOD'] : $default;
 
+        if ($method == 'POST') {
+          if (isset($_POST['_method'])) {
+            $method = $_POST['_method'];
+          }
+        }
+
         return strtoupper($method);
     }
 
