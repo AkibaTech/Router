@@ -174,6 +174,7 @@ final class RouterTest extends TestCase
      */
     public function testNamedRouteOnDuplicateException()
     {
+        $this->expectException(\InvalidArgumentException::class);
         $this->router->get('foo', '...', 'route1');
         $this->router->get('bar', '...', 'route1');
     }
